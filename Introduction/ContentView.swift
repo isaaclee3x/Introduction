@@ -13,9 +13,11 @@ struct ContentView: View {
     @State private var accesstoTab = false
     @State private var isPresented = false
     @State private var foregroundColor: Color = .black
+    @State private var foregroundColorTopLabel: Color = .black
     @State private var backgroundColorFirstButton = Color.red
     @State private var backgroundColorSecondButton = Color.yellow
     @State private var foregroundColorLabel = Color.white
+    @State private var rotationSecondPicture: Angle = .zero
     
     var body: some View {
         TabView {
@@ -27,14 +29,14 @@ struct ContentView: View {
                         .shadow(radius: 5)
                         .rotationEffect(rotation)
                         .onAppear {
-                            withAnimation(.linear(duration: 0.1).repeatForever(autoreverses: false)) {
+                            withAnimation(.linear(duration: 0.1).repeatForever()) {
                                 rotation = Angle(degrees: 360)
-                                
                             }
                         }
                     Spacer()
                         .frame(height: 50)
                     Text("Guess what this picture is?")
+                        .foregroundColor(foregroundColorTopLabel)
                     
                     HStack {
                         Button("Flower") {
@@ -45,6 +47,7 @@ struct ContentView: View {
                                 backgroundColorFirstButton = Color.white
                                 backgroundColorSecondButton = Color.white
                                 foregroundColorLabel = Color.black
+                                foregroundColorTopLabel = Color.white
                             }
                         }
                         .frame(width: 110, height: 40)
@@ -74,8 +77,45 @@ struct ContentView: View {
                 Text("Recognition")
             }
             
-            VStack {
-                
+            HStack {
+                VStack(alignment: .center) {
+                    Text("Who created this??")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .font(Font.custom("Helvetica Neue", size: 30))
+                    
+                    Image("sushi")
+                        .resizable()
+                        .frame(width: 200, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .mask(Circle())
+                        .rotationEffect(rotationSecondPicture)
+                    
+                    Text("ME! Isaac")
+                        .font(Font.custom("Helvetica Neue", size: 20))
+                        .padding()
+                    
+                    Text("""
+                         - Sorta kind? Maybe
+                         - Going insane
+                         - Always there to help
+                         """)
+                        .font(Font.custom("American Typewriter", size: 15))
+                        .frame(width: 200, height:150, alignment: .center)
+                        .background(Color.green)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .padding()
+                    
+                    HStack {
+                        Text("Proof?")
+                            .font(Font.custom("SF Pro", size: 10))
+                        
+                        Button("Click Here Then") {
+                            rotationSecondPicture += Angle(degrees: 10)
+                        }
+                        .foregroundColor(.red)
+                        .opacity(0.5)
+                        .font(Font.custom("SF Pro", size: 10))
+                    }
+                }
             }
             .tabItem {
                 Image(systemName: "doc.plaintext")
