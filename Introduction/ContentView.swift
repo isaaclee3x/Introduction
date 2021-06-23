@@ -77,7 +77,8 @@ struct ContentView: View {
                 Text("Recognition")
             }
             
-            HStack {
+            ZStack {
+                Color.yellow
                 VStack(alignment: .center) {
                     Text("Who created this??")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -111,15 +112,20 @@ struct ContentView: View {
                         Button("Click Here Then") {
                             rotationSecondPicture += Angle(degrees: 10)
                         }
-                        .foregroundColor(.red)
                         .opacity(0.5)
                         .font(Font.custom("SF Pro", size: 10))
+                        .frame(width: 90, height: 50)
+                        .foregroundColor(.black)
+                        .background(Color.red)
+                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                     }
                 }
             }
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             .tabItem {
                 Image(systemName: "doc.plaintext")
                 Text(accesstoTab ? "My Info" : "NO ACCESSSSS!!!!")
+                
             }
         }
     }
