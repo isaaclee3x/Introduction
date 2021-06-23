@@ -47,13 +47,8 @@ struct ContentView: View {
                 
                 }
             }
-        alert(isPresented: $isPresented) {
-            
-            Alert(title: Text(correctAnswer ? "Correct!!" : "HOW???"), message: Text(correctAnswer ? "Wow, you did it!! It wasn't so difficult after all!" : "😾 IT WAS SO EASY!! stupid baka"), dismissButton: Alert.Button.default(Text(correctAnswer ? "Tks!" : "You don't have to remind me for god sake!"))
-                  
-            )}
         }
-    
+
 
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
