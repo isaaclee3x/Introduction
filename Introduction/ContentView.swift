@@ -9,17 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
+    //State vars for display
     @State private var rotation: Angle = .zero
+    @State private var rotationSecondPicture: Angle = .zero
+    
+    //State vars for access/presented content
+    @State private var wrongAttempts = 0
     @State private var accesstoTab = false
     @State private var isPresented = false
     @State private var isSheetPresented = false
+    
+    //State vars for changing color values
     @State private var foregroundColor: Color = .black
     @State private var foregroundColorTopLabel: Color = .black
     @State private var backgroundColorFirstButton = Color.red
     @State private var backgroundColorSecondButton = Color.yellow
     @State private var foregroundColorLabel = Color.white
-    @State private var rotationSecondPicture: Angle = .zero
-    @State private var wrongAttempts = 0
     
     var body: some View {
         TabView {
