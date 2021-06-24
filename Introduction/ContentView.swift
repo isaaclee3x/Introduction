@@ -28,6 +28,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            
+        //First tab
+            
             ZStack {
                 VStack {
                     Image("flowers")
@@ -92,6 +95,10 @@ struct ContentView: View {
                 Image(systemName: "person.circle")
                 Text("Recognition")
             }
+            
+            
+            //Second Tab
+            
             
             ZStack {
                 Color.yellow
