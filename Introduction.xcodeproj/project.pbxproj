@@ -11,6 +11,7 @@
 		FFB362042682D38400B24E3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB362032682D38400B24E3E /* ContentView.swift */; };
 		FFB362062682D38600B24E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB362052682D38600B24E3E /* Assets.xcassets */; };
 		FFB362092682D38600B24E3E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB362082682D38600B24E3E /* Preview Assets.xcassets */; };
+		FFB362112682F03B00B24E3E /* WrongAnswerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB362102682F03B00B24E3E /* WrongAnswerSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		FFB362052682D38600B24E3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB362082682D38600B24E3E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFB3620A2682D38600B24E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFB362102682F03B00B24E3E /* WrongAnswerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				FFB362012682D38400B24E3E /* IntroductionApp.swift */,
 				FFB362032682D38400B24E3E /* ContentView.swift */,
+				FFB362102682F03B00B24E3E /* WrongAnswerSheet.swift */,
 				FFB362052682D38600B24E3E /* Assets.xcassets */,
 				FFB3620A2682D38600B24E3E /* Info.plist */,
 				FFB362072682D38600B24E3E /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				FFB362042682D38400B24E3E /* ContentView.swift in Sources */,
 				FFB362022682D38400B24E3E /* IntroductionApp.swift in Sources */,
+				FFB362112682F03B00B24E3E /* WrongAnswerSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

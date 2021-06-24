@@ -12,12 +12,14 @@ struct ContentView: View {
     @State private var rotation: Angle = .zero
     @State private var accesstoTab = false
     @State private var isPresented = false
+    @State private var isSheetPresented = false
     @State private var foregroundColor: Color = .black
     @State private var foregroundColorTopLabel: Color = .black
     @State private var backgroundColorFirstButton = Color.red
     @State private var backgroundColorSecondButton = Color.yellow
     @State private var foregroundColorLabel = Color.white
     @State private var rotationSecondPicture: Angle = .zero
+    @State private var wrongAttempts = 0
     
     var body: some View {
         TabView {
@@ -34,7 +36,7 @@ struct ContentView: View {
                             }
                         }
                     Spacer()
-                        .frame(height: 50)
+                        .frame(height: 90)
                     Text("Guess what this picture is?")
                         .foregroundColor(foregroundColorTopLabel)
                     
@@ -58,6 +60,15 @@ struct ContentView: View {
                         
                         Button("Tree"){
                             accesstoTab = false
+                            if wrongAttempts < 3 {
+                                wrongAttempts += 1
+                                print(wrongAttempts)
+                            }
+                            else if wrongAttempts == 3 {
+                                isSheetPresented = true
+                                wrongAttempts = 0
+                            }
+                            
                         }
                         .frame(width: 110, height: 40)
                         .background(backgroundColorSecondButton)
@@ -117,7 +128,8 @@ struct ContentView: View {
                         .frame(width: 90, height: 50)
                         .foregroundColor(.black)
                         .background(Color.red)
-                        .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(10)
+                        
                     }
                 }
             }
@@ -128,12 +140,17 @@ struct ContentView: View {
                 
             }
         }
+        .sheet(isPresented: $isSheetPresented){
+            WrongAnswerSheet()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
 
