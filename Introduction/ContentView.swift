@@ -16,7 +16,7 @@ struct ContentView: View {
     //State vars for access/presented content
     @State private var wrongAttempts = 0
     @State private var accesstoTab = false
-    @State private var isPresented = false
+    @State private var isAlertPresented = false
     @State private var isSheetPresented = false
     
     //State vars for changing color values
@@ -68,15 +68,14 @@ struct ContentView: View {
                         
                         Button("Tree"){
                             accesstoTab = false
-                            if wrongAttempts < 3 {
+                            if wrongAttempts < 2 {
+                                isAlertPresented = true
                                 wrongAttempts += 1
-                                print(wrongAttempts)
                             }
-                            else if wrongAttempts == 3 {
+                            else if wrongAttempts >= 2{
                                 isSheetPresented = true
                                 wrongAttempts = 0
                             }
-                            
                         }
                         .frame(width: 110, height: 40)
                         .background(backgroundColorSecondButton)
@@ -154,6 +153,10 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isSheetPresented){
             WrongAnswerSheet()
+        }
+        
+        .alert(isPresented: $isAlertPresented) {
+            Alert(title: Text("A suprise awaits you!"), message: Text("Don't worry about it 😉"), dismissButton: Alert.Button.default(Text("That's kinda sus but ok")))
         }
     }
 }
